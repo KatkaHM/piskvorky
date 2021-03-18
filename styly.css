@@ -1,0 +1,27 @@
+html {
+  height: 100%;
+  background-image: linear-gradient(#615dad, #ffc8da);
+  color: white;
+}
+
+img {
+  width: 400px;
+}
+
+.hlavni {
+  max-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  background-color: #283e50;
+}
+
+.pravidla {
+  background-color: #1fcca4;
+  /* Tlačítko Pravidla  #1fcca4. A po najetí myši  #1cbb96 */
+}
+
+.zacit {
+  background-color: #0197f6;
+  /* Tlačítko Začít hrát  #0197f6. Po najetí  #0090e9 */
+}
