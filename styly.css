@@ -5,7 +5,7 @@ html {
 }
 
 img {
-  width: 400px;
+  width: 100%;
 }
 
 .hlavni {
@@ -16,12 +16,42 @@ img {
   background-color: #283e50;
 }
 
+.buttons {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+}
+
+.tlacitko {
+  width: auto;
+  height: 50px;
+  display: flex;
+  margin-top: 1px;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  /* flex-grow: 1;
+  flex-shrink: 0; */
+}
+
 .pravidla {
   background-color: #1fcca4;
   /* Tlačítko Pravidla  #1fcca4. A po najetí myši  #1cbb96 */
 }
 
+.pravidla:hover {
+  background-color: #1cbb96;
+  /* cursor: pointer; */
+  cursor: not-allowed; /* temp dokud nebude odkaz funkcni */
+}
+
 .zacit {
   background-color: #0197f6;
   /* Tlačítko Začít hrát  #0197f6. Po najetí  #0090e9 */
+}
+
+.zacit:hover {
+  background-color: #0090e9;
+  /* cursor: pointer; */
+  cursor: not-allowed; /* temp dokud nebude odkaz funkcni */
 }
