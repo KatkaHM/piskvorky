@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
   background-image: linear-gradient(#615dad, #ffc8da);
@@ -9,11 +13,24 @@ img {
 }
 
 .hlavni {
-  max-width: 400px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  overflow: hidden;
+  max-width: 360px;
+  margin: 70px auto;
+  background-color: #283e50;
   display: flex;
   flex-wrap: wrap;
+  text-align: center;
+}
+
+.nazev {
   margin: auto;
-  background-color: #283e50;
+  padding: 10px;
+}
+
+.popisek {
+  padding: 10px;
 }
 
 .buttons {
@@ -25,13 +42,10 @@ img {
 .tlacitko {
   width: auto;
   height: 50px;
-  display: flex;
   margin-top: 1px;
-  text-align: center;
+  display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-grow: 1;
-  flex-shrink: 0; */
 }
 
 .pravidla {
@@ -54,4 +68,11 @@ img {
   background-color: #0090e9;
   /* cursor: pointer; */
   cursor: not-allowed; /* temp dokud nebude odkaz funkcni */
+}
+
+a:link,
+a:visited {
+  text-align: center;
+  color: white;
+  text-decoration: none;
 }
