@@ -3,8 +3,9 @@
 }
 
 html {
-  height: 100%;
+  min-height: 100vh;
   background-image: linear-gradient(#615dad, #ffc8da);
+  /* background-repeat: unset; */
   color: white;
   font-size: 16px;
   font-family: sans-serif;
@@ -55,11 +56,13 @@ img {
   align-items: center;
 }
 
-.pravidla {
+.pravidla,
+.uvod {
   background-color: #1fcca4;
 }
 
-.pravidla:hover {
+.pravidla:hover,
+.uvod:hover {
   background-color: #1cbb96;
 }
 
@@ -78,4 +81,51 @@ a:visited {
   text-align: center;
   color: white;
   text-decoration: none;
+}
+figcaption {
+  font-style: italic;
+}
+.seznamPravidel {
+  text-align: left;
+  margin: 30px;
+  line-height: 100%;
+}
+
+.seznamPravidel > li {
+  margin-bottom: 10px;
+}
+
+.ikon {
+  width: 1em;
+  height: 1em;
+  filter: invert();
+}
+
+.obrazkyPravidla {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-evenly;
+  margin-bottom: 30px;
+}
+
+@media (min-width: 1000px) {
+  .hlavni {
+    max-width: 800px;
+    margin: 20px auto;
+  }
+
+  .seznamPravidel {
+    font-size: 20px;
+    line-height: 130%;
+  }
+  .seznamPravidel > li {
+    margin-bottom: 15px;
+    padding-left: 10px;
+  }
+
+  figure {
+    max-width: 45%;
+    margin: 10px;
+  }
 }
