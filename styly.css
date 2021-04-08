@@ -11,8 +11,9 @@ html {
 }
 
 .mainBox {
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px;
+  /* border-top-left-radius: 7px;
+  border-top-right-radius: 7px; */
+  border-radius: 7px 7px 0 0;
   overflow: hidden;
   max-width: 365px;
   margin: 70px auto;
@@ -125,8 +126,6 @@ figcaption {
 
 .zacitBtn:hover {
   background-color: #0090e9;
-  /* cursor: pointer; */
-  cursor: not-allowed; /* temp dokud nebude odkaz funkcni */
 }
 
 a:link,
