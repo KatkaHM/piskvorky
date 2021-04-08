@@ -11,8 +11,6 @@ html {
 }
 
 .mainBox {
-  /* border-top-left-radius: 7px;
-  border-top-right-radius: 7px; */
   border-radius: 7px 7px 0 0;
   overflow: hidden;
   max-width: 365px;
@@ -92,6 +90,24 @@ figcaption {
   }
 }
 
+.herniOkno {
+  max-width: 365px;
+  margin: 70px auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.infoLista {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.herniPole {
+  /* tohle bude sranda */
+}
+
 /*          */
 /* Tlacitka */
 /*          */
@@ -110,22 +126,25 @@ figcaption {
   align-items: center;
 }
 
-.pravidlaBtn,
-.uvodBtn {
+.greenBtn {
   background-color: #1fcca4;
 }
 
-.pravidlaBtn:hover,
-.uvodBtn:hover {
+.greenBtn:hover {
   background-color: #1cbb96;
 }
 
-.zacitBtn {
+.blueBtn {
   background-color: #0197f6;
 }
 
-.zacitBtn:hover {
+.blueBtn:hover {
   background-color: #0090e9;
+}
+
+.domuBtn > img,
+.restartBtn > img {
+  filter: invert();
 }
 
 a:link,
