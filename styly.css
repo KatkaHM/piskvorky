@@ -91,7 +91,7 @@ figcaption {
 }
 
 .herniOkno {
-  max-width: 365px;
+  max-width: 80vmin;
   margin: 70px auto;
   display: flex;
   flex-wrap: wrap;
@@ -102,10 +102,23 @@ figcaption {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-bottom: 20px;
 }
 
 .herniPole {
-  /* tohle bude sranda */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.policko {
+  width: 10%;
+  height: 0;
+  padding-bottom: 10%;
+
+  /* todo zjistit co je tam za barvy */
+  /* background-color: transparent; */
+  /* background-color: #c6b8d9; */
+  background-color: rgba(243, 214, 229, 0.5);
 }
 
 /*          */
@@ -126,6 +139,11 @@ figcaption {
   align-items: center;
 }
 
+.domuBtn {
+  width: 40px;
+  height: 40px;
+}
+
 .greenBtn {
   background-color: #1fcca4;
 }
@@ -140,11 +158,6 @@ figcaption {
 
 .blueBtn:hover {
   background-color: #0090e9;
-}
-
-.domuBtn > img,
-.restartBtn > img {
-  filter: invert();
 }
 
 a:link,
