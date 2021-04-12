@@ -27,7 +27,7 @@ html {
   padding-top: 40px;
   padding-bottom: 15px;
   font-family: 'Lobster', cursive, sans-serif;
-  font-size: 47px;
+  font-size: 50px;
   font-weight: 500;
 }
 
@@ -103,22 +103,40 @@ figcaption {
   flex-direction: row;
   justify-content: space-between;
   padding-bottom: 20px;
+  align-items: center;
+}
+
+.status {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.iconBtns {
+  display: flex;
 }
 
 .herniPole {
   display: flex;
+  border: 1px solid black;
   flex-wrap: wrap;
+  opacity: 0.4;
+  /* todo fix opacity pro vlozene prvky */
+  /* background-color: transparent 40%; */
+  /* background-color: #c6b8d9; */
+  /* background-color: rgba(243, 214, 229, 0.4); */
 }
 
 .policko {
   width: 10%;
   height: 0;
+  border: 1px solid black;
   padding-bottom: 10%;
+  cursor: pointer;
+}
 
-  /* todo zjistit co je tam za barvy */
-  /* background-color: transparent; */
-  /* background-color: #c6b8d9; */
-  background-color: rgba(243, 214, 229, 0.5);
+.policko:hover,
+.policko:focus {
+  filter: brightness(170%);
 }
 
 /*          */
@@ -139,9 +157,11 @@ figcaption {
   align-items: center;
 }
 
-.domuBtn {
-  width: 40px;
-  height: 40px;
+.domuBtn,
+.restartBtn {
+  padding: 7px;
+  margin: 3px;
+  border-radius: 8%;
 }
 
 .greenBtn {
