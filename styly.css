@@ -145,7 +145,7 @@ figcaption {
 
 .policko:hover,
 .policko:focus {
-  filter: brightness(170%);
+  background: rgba(255, 255, 255, 0.25);
 }
 
 /*          */
