@@ -55,6 +55,14 @@ html {
   filter: invert();
 }
 
+.marks--inGame {
+  /* TODO prijit na to jak vycentrovat a zvetsit mark */
+  width: max-content;
+  height: max-content;
+  align-items: center;
+  justify-content: center;
+}
+
 .instrPicBox {
   display: flex;
   flex-wrap: wrap;
