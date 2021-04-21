@@ -115,6 +115,10 @@ figcaption {
 .iconBtns {
   display: flex;
 }
+
+/*            */
+/* Herni pole */
+/*            */
 .herniPole {
   display: flex;
   flex-wrap: wrap;
@@ -131,10 +135,24 @@ figcaption {
   cursor: pointer;
 }
 
+@keyframes zvetseni {
+  0% {
+    background-size: 0%;
+  }
+  70% {
+    background-size: 80%;
+  }
+  100% {
+    background-size: 70%;
+  }
+}
+
 .policko--vybrane {
   background-repeat: no-repeat;
   background-size: 70%;
   background-position: center;
+  animation-name: zvetseni;
+  animation-duration: 0.25s;
 }
 
 .policko--circle {
