@@ -145,10 +145,10 @@ figcaption {
   background-image: url(img/cross.svg);
 }
 
-/* .policko:hover,
-.policko:focus {
+.policko:hover:enabled,
+.policko:focus:enabled {
   background: rgba(255, 255, 255, 0.25);
-} */
+}
 
 /*          */
 /* Tlacitka */
