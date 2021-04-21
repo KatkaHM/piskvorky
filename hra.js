@@ -21,7 +21,7 @@ const zmenSoucasnyTah = () => {
 };
 
 const udelejTah = (element) => {
-  element.innerHTML = `<img src="img/${soucasnyTah}.svg" alt="${soucasnyTah}" class="marks--inGame" />`;
+  element.classList.add(`policko--vybrane`, `policko--${soucasnyTah}`);
   element.disabled = true;
   zmenSoucasnyTah();
 };
@@ -29,7 +29,8 @@ const udelejTah = (element) => {
 elmHerniPole.addEventListener('click', (event) => {
   console.log('isDisabled:', event.target.disabled);
 
-  if (event.target.disabled === false) {
+  // if (event.target.disabled === false) {
+  if (event.target.tagName === 'BUTTON') {
     udelejTah(event.target);
   } else {
     console.log('illegal move, nothing should happen');

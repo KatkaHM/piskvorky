@@ -53,14 +53,7 @@ html {
   width: 1em;
   height: 1em;
   filter: invert();
-}
-
-.marks--inGame {
-  /* TODO prijit na to jak vycentrovat a zvetsit mark */
-  width: max-content;
-  height: max-content;
-  align-items: center;
-  justify-content: center;
+  margin-bottom: -2px;
 }
 
 .instrPicBox {
@@ -138,10 +131,24 @@ figcaption {
   cursor: pointer;
 }
 
-.policko:hover,
+.policko--vybrane {
+  background-repeat: no-repeat;
+  background-size: 70%;
+  background-position: center;
+}
+
+.policko--circle {
+  background-image: url(img/circle.svg);
+}
+
+.policko--cross {
+  background-image: url(img/cross.svg);
+}
+
+/* .policko:hover,
 .policko:focus {
   background: rgba(255, 255, 255, 0.25);
-}
+} */
 
 /*          */
 /* Tlacitka */
