@@ -34,54 +34,138 @@ const getSymbol = (policko) => {
   }
 };
 
-const zkontrolujVyhru = (element) => {
-  const zacatek = getIndex(element);
-  const znak = getSymbol(element);
-  let i;
-
-  // radky
-  let pocetVRadku = 1;
-  i = zacatek.column;
-  while (i > 0 && znak === getSymbol(getPolicko(zacatek.row, i - 1))) {
-    pocetVRadku++;
+const pocetVRadku = (zacatek) => {
+  let pocetZaSebou = 1;
+  let i = zacatek.column;
+  while (i > 0 && soucasnyTah === getSymbol(getPolicko(zacatek.row, i - 1))) {
+    pocetZaSebou++;
     i--;
   }
 
   i = zacatek.column;
   while (
     i < velikostHernihoPole - 1 &&
-    znak === getSymbol(getPolicko(zacatek.row, i + 1))
+    soucasnyTah === getSymbol(getPolicko(zacatek.row, i + 1))
   ) {
-    pocetVRadku++;
+    pocetZaSebou++;
     i++;
   }
 
-  if (pocetVRadku >= obtiznost) {
+  return pocetZaSebou;
+};
+
+const pocetVSloupci = (zacatek) => {
+  let pocetZaSebou = 1;
+  let i = zacatek.row;
+  while (
+    i > 0 &&
+    soucasnyTah === getSymbol(getPolicko(i - 1, zacatek.column))
+  ) {
+    pocetZaSebou++;
+    i--;
+  }
+
+  i = zacatek.row;
+  while (
+    i < velikostHernihoPole - 1 &&
+    soucasnyTah === getSymbol(getPolicko(i + 1, zacatek.column))
+  ) {
+    pocetZaSebou++;
+    i++;
+  }
+
+  return pocetZaSebou;
+};
+
+const pocetVDiagonLP = (zacatek) => {
+  //diagonala vlevo-hore vpravo-dole
+  let pocetZaSebou = 1;
+  let iRadky = zacatek.row;
+  let iSloupce = zacatek.column;
+
+  while (
+    iRadky > 0 &&
+    iSloupce > 0 &&
+    soucasnyTah === getSymbol(getPolicko(iRadky - 1, iSloupce - 1))
+  ) {
+    pocetZaSebou++;
+    iRadky--;
+    iSloupce--;
+  }
+
+  iRadky = zacatek.row;
+  iSloupce = zacatek.column;
+  while (
+    iRadky < velikostHernihoPole - 1 &&
+    iSloupce < velikostHernihoPole - 1 &&
+    soucasnyTah === getSymbol(getPolicko(iRadky + 1, iSloupce + 1))
+  ) {
+    pocetZaSebou++;
+    iRadky++;
+    iSloupce++;
+  }
+
+  return pocetZaSebou;
+};
+
+const pocetVDiagonPL = (zacatek) => {
+  //diagonala vpravo-hore vlevo-dole
+  let pocetZaSebou = 1;
+  let iRadky = zacatek.row;
+  let iSloupce = zacatek.column;
+
+  while (
+    iRadky > 0 &&
+    iSloupce > 0 &&
+    soucasnyTah === getSymbol(getPolicko(iRadky - 1, iSloupce + 1))
+  ) {
+    pocetZaSebou++;
+    iRadky--;
+    iSloupce++;
+  }
+
+  iRadky = zacatek.row;
+  iSloupce = zacatek.column;
+  while (
+    iRadky < velikostHernihoPole - 1 &&
+    iSloupce < velikostHernihoPole - 1 &&
+    soucasnyTah === getSymbol(getPolicko(iRadky + 1, iSloupce - 1))
+  ) {
+    pocetZaSebou++;
+    iRadky++;
+    iSloupce--;
+  }
+
+  return pocetZaSebou;
+};
+
+const zkontrolujVyhru = (element) => {
+  const zacatek = getIndex(element);
+
+  if (pocetVRadku(zacatek) >= obtiznost) {
     return true;
   }
 
-  //sloupce
-  let pocetVSloupci = 1;
-  i = zacatek.row;
-  while (i > 0 && znak === getSymbol(getPolicko(i - 1, zacatek.column))) {
-    pocetVSloupci++;
-    i--;
+  if (pocetVSloupci(zacatek) >= obtiznost) {
+    return true;
   }
 
-  i = zacatek.row;
-  while (
-    i < velikostHernihoPole - 1 &&
-    znak === getSymbol(getPolicko(i + 1, zacatek.column))
-  ) {
-    pocetVSloupci++;
-    i++;
+  if (pocetVDiagonLP(zacatek) >= obtiznost) {
+    return true;
   }
 
-  if (pocetVSloupci >= obtiznost) {
+  if (pocetVDiagonPL(zacatek) >= obtiznost) {
     return true;
   }
 
   return false;
+};
+
+const showWin = () => {
+  let vyhra = confirm(`Výhercem je: ${soucasnyTah}!!! Spustit hru znovu?`);
+  if (vyhra === true) {
+    location.reload();
+  }
 };
 
 const zmenSoucasnyTah = () => {
@@ -99,24 +183,16 @@ const zmenSoucasnyTah = () => {
   }
 };
 
-const vypisVyhru = () => {
-  let vyhra = confirm(`Výhercem je: ${soucasnyTah}!!! Spustit hru znovu?`);
-  if (vyhra === true) {
-    location.reload();
-  }
-};
-
 const udelejTah = (element) => {
   element.classList.add(`policko--vybrane`, `policko--${soucasnyTah}`);
   element.disabled = true;
   if (zkontrolujVyhru(element)) {
-    vypisVyhru();
+    showWin();
   }
   zmenSoucasnyTah();
 };
 
 elmHerniPole.addEventListener('click', (event) => {
-  // if (event.target.disabled === false) {
   if (event.target.tagName === 'BUTTON') {
     udelejTah(event.target);
   } else {
